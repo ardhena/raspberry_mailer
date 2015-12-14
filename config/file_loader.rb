@@ -2,7 +2,7 @@ module Config
   class FileLoader
     LOADED_FILES = [ 'app.rb', 'file_loader.rb']
     EXCLUDED_DIRS = [ '.', '..', '.git']
-    EXCLUDED_FILES = [ 'log', LOADED_FILES ].flatten
+    EXCLUDED_FILES = [ 'log', 'Gemfile.lock', LOADED_FILES ].flatten
 
     attr_reader :path
 
@@ -10,11 +10,17 @@ module Config
       @path = path
     end
 
-    def load
-      generate_files(path).reject(&:nil?).sort
+    def call
+      files_to_load.each do |file|
+        require file
+      end
     end
 
     private
+
+    def files_to_load
+      generate_files(path).reject(&:nil?).sort
+    end
 
     def generate_files(path)
       Dir.entries(path).flat_map do |entry|
@@ -35,8 +41,8 @@ module Config
     end
 
     def add_entry(path, entry)
-      return file_with_path(path, entry) unless entry.include?('Gemfile')
-      generate_gems(path, entry) if entry == 'Gemfile'
+      return generate_gems(path, entry) if entry == 'Gemfile'
+      file_with_path(path, entry)
     end
 
     def generate_gems(path, entry)
