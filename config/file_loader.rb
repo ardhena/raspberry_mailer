@@ -56,7 +56,7 @@ module Config
     end
 
     def gem_name(line)
-      line.split("'").reject{ |line| line == 'gem ' }.first
+      line.split("'").map(&:strip).reject{ |line| line == 'gem' }.first
     end
   end
 end
