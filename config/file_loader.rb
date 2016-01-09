@@ -1,6 +1,6 @@
 module Config
   class FileLoader
-    LOAD_DIR = 'app'
+    LOAD_DIRS = [ 'app', 'config/initializers' ]
     LOAD_FILE_EXTENSTIONS = [ '.rb' ]
     EXCLUDE_DIRS = [ '.', '..' ]
 
@@ -15,7 +15,12 @@ module Config
     end
 
     def files
-      fetch_files("#{path}/#{LOAD_DIR}").reject(&:nil?).sort
+      all_files = []
+      LOAD_DIRS.each do |dir|
+        dir_path = "#{path}/#{dir}"
+        all_files << fetch_files(dir_path) if File.exists?(dir_path)
+      end
+      all_files.flatten.reject(&:nil?).sort
     end
 
     def call
