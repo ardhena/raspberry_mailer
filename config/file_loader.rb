@@ -1,6 +1,6 @@
 module Config
   class FileLoader
-    LOAD_DIRS = [ 'app', 'config/initializers' ]
+    LOAD_DIRS = [ 'app', 'config/initializers', 'runners' ]
     LOAD_FILE_EXTENSTIONS = [ '.rb' ]
     EXCLUDE_DIRS = [ '.', '..' ]
 
