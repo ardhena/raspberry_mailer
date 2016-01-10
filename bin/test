@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 PATH = Dir.pwd
 TEST_PATH = "#{PATH}/test"
+
+require "#{PATH}/config/test_option_parser.rb"
 require "#{PATH}/config/test_runner.rb"
-Config::TestRunner.new(TEST_PATH).call
+
+options = Config::TestOptionParser.new(ARGV)
+Config::TestRunner.new(TEST_PATH, options).call

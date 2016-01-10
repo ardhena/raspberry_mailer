@@ -3,10 +3,11 @@ module Config
     FILE_NAME_PATTERN = 'test.rb'
     EXCLUDE_DIRS = [ '.', '..', 'fixtures' ]
 
-    attr_reader :path
+    attr_reader :path, :options
 
-    def initialize(path)
+    def initialize(path, options)
       @path = path
+      @options = options
     end
 
     def files
@@ -15,13 +16,22 @@ module Config
 
     def call
       files.shuffle.each do |file|
-        system "echo 'Running \e[35m#{file}\e[0m'"
-        system "ruby -Ilib:test #{file}"
-        system "echo"
+        options.quick ? quick(file) : all(file)
       end
     end
 
     private
+
+    def quick(file)
+      system "echo 'Running \e[35m#{file}\e[0m'"
+      system "ruby -Ilib:test #{file} | grep assertions"
+    end
+
+    def all(file)
+      system "echo 'Running \e[35m#{file}\e[0m'"
+      system "ruby -Ilib:test #{file}"
+      system "echo"
+    end
 
     def fetch_files(sub_path)
       Dir.entries(sub_path).flat_map do |entry|
