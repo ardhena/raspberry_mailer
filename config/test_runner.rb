@@ -1,3 +1,8 @@
+# TODO
+# - allow to run single files or by regex
+# - test quick and all running options
+# - similar file? and directory? methods as in file_loader - DRY it
+
 module Config
   class TestRunner
     FILE_NAME_PATTERN = 'test.rb'

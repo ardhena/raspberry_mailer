@@ -5,3 +5,6 @@ require "#{PATH}/config/file_loader.rb"
 Config::FileLoader.new(PATH).call
 
 Pry.start
+
+# TODO
+# - use the same file for running app and console, but with options

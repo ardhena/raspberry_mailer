@@ -1,3 +1,8 @@
+# TODO
+# - move gem and file list creation to separate files
+# - make loaded dirs somehow configurable (for example via array to allow executing bin with options)
+#   (will this even be used for something?)
+
 module Config
   class FileLoader
     LOAD_DIRS = [ 'app', 'config/initializers', 'runners' ]
