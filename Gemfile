@@ -1,6 +1,11 @@
 source "https://rubygems.org"
 
+gem 'capybara'
+gem 'poltergeist'
 gem 'pry'
-gem 'capistrano'
-gem 'capistrano-rvm'
-gem 'airbrussh'
+
+group :deployment do
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'airbrussh'
+end
