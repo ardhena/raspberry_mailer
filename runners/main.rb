@@ -14,8 +14,7 @@ module Runner
     end
 
     def call
-      puts 'Nothing to do here (yet)'
-      # execute schedulers for today
+      Mailer::TimeTable.new
     end
   end
 end

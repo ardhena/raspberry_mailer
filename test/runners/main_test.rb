@@ -1,6 +1,11 @@
 require 'test_helper'
 require_relative '../../runners/main'
 
+module Mailer
+  class TimeTable;
+  end
+end
+
 class MainTest < Minitest::Test
   def setup
     @date = Date.parse('2016-01-09')
@@ -13,7 +18,6 @@ class MainTest < Minitest::Test
   end
 
   def test_run_schedulers
-    # execute schedulers for today
-    # add test when there will be some schedulers
+    assert_equal Mailer::TimeTable, @runner.call.class
   end
 end
