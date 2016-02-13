@@ -39,7 +39,7 @@ module Config
     def fetch_gems
       gems = []
       File.foreach("#{path}/Gemfile") do |line|
-        if line.include?('gem') && !line.include?('source')
+        if line.include?('gem') && !line.include?('source') && !line.include?('#skip')
           gems << gem_name(line)
         end
       end
@@ -66,7 +66,9 @@ module Config
     end
 
     def gem_name(line)
-      line.split("'").map(&:strip).reject{ |line| line == 'gem' }.first
+      array = line.split("'").map(&:strip)
+      return array.reject{ |line| line == 'gem' }.first if !array.include?('#')
+      array[array.find_index('#').next]
     end
   end
 end

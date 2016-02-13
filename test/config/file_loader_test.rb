@@ -4,8 +4,8 @@ require_relative '../../config/file_loader'
 class FileLoaderTest < Minitest::Test
   def setup
     @path = "#{Dir.pwd}/test/fixtures"
-    @gems = [ 'mail', 'pry' ]
-    @files = [ "#{@path}/app/bar/file_2.rb", "#{@path}/app/file_1.rb" ]
+    @gems = ['pry', 'pry', 'pry']
+    @files = ["#{@path}/app/bar/file_2.rb", "#{@path}/app/file_1.rb"]
     @loader = Config::FileLoader.new(@path)
   end
 
