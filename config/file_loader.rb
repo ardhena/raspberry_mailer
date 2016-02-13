@@ -5,9 +5,9 @@
 
 module Config
   class FileLoader
-    LOAD_DIRS = [ 'app', 'config/initializers', 'runners' ]
-    LOAD_FILE_EXTENSTIONS = [ '.rb' ]
-    EXCLUDE_DIRS = [ '.', '..' ]
+    LOAD_DIRS = %w(app config/initializers runners)
+    LOAD_FILE_EXTENSTIONS = %w(.rb)
+    EXCLUDE_DIRS = %w(. ..)
 
     attr_reader :path
 
@@ -15,8 +15,10 @@ module Config
       @path = path
     end
 
-    def gems
-      fetch_gems
+    def call
+      (files + gems + modules).each do |file|
+        require file
+      end
     end
 
     def files
@@ -28,10 +30,12 @@ module Config
       all_files.flatten.reject(&:nil?).sort
     end
 
-    def call
-      (files + gems).each do |file|
-        require file
-      end
+    def gems
+      fetch_gems
+    end
+
+    def modules
+      %w(date)
     end
 
     private

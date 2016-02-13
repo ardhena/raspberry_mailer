@@ -1,6 +1,8 @@
 require 'test_helper'
 require_relative '../../runners/main'
 
+require 'date'
+
 module Mailer
   class TimeTable;
   end
