@@ -7,7 +7,7 @@ set :pty, true
 namespace :setup do
   task :bundle do
     on roles(:app) do
-      execute "cd #{current_path} && /home/olgad/.rvm/gems/ruby-2.2.4/wrappers/bundle install --without deployment test"
+      execute "cd #{current_path} && /usr/local/rvm/gems/ruby-2.2.4/wrappers/bundle install --without deployment test"
     end
   end
 end
