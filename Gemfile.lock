@@ -4,6 +4,8 @@ GEM
     addressable (2.4.0)
     airbrussh (0.8.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    ansi (1.5.0)
+    builder (3.2.2)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -26,6 +28,12 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2015.1120)
     mini_portile2 (2.0.0)
+    minitest (5.8.4)
+    minitest-reporters (1.1.7)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     multi_json (1.11.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -45,6 +53,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.5.0)
+    ruby-progressbar (1.7.5)
     slop (3.6.0)
     sshkit (1.8.1)
       net-scp (>= 1.1.2)
@@ -63,6 +72,7 @@ DEPENDENCIES
   capistrano
   capistrano-rvm
   capybara
+  minitest-reporters
   poltergeist
   pry
 
