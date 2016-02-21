@@ -6,6 +6,7 @@ require 'date'
 module Mailer
   class TimeTable;
     def initialize(_); end;
+    def call; 'called'; end;
   end
 end
 
@@ -22,7 +23,7 @@ module Runner
     end
 
     def test_run_time_table
-      assert_equal Mailer::TimeTable, @runner.call.class
+      assert_equal 'called', @runner.call
     end
   end
 end

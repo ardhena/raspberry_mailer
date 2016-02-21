@@ -15,7 +15,7 @@ module Runner
 
     def call
       if day_of_week == 3
-        Mailer::TimeTable.new(date)
+        Mailer::TimeTable.new(date).call
       end
     end
   end
