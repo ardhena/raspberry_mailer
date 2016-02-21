@@ -3,4 +3,6 @@ PATH = Dir.pwd
 require "#{PATH}/config/file_loader.rb"
 Config::FileLoader.new(PATH).call
 
-Runner::Main.new(Date.today).call
+date = Date.parse('2016-03-09')
+# date = Date.today
+Runner::Main.new(date).call
