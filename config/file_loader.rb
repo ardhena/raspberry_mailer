@@ -35,7 +35,7 @@ module Config
     end
 
     def modules
-      %w(date)
+      %w(date erb)
     end
 
     private

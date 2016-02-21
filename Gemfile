@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem 'capybara'
 gem 'poltergeist'           #'capybara/poltergeist'
 gem 'pry'
+gem 'mail'
 
 group :deployment do
   gem 'capistrano'          #skip

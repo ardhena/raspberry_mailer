@@ -6,7 +6,7 @@ class FileLoaderTest < Minitest::Test
     @path = "#{Dir.pwd}/test/fixtures"
     @files = ["#{@path}/app/bar/file_2.rb", "#{@path}/app/file_1.rb"]
     @gems = %w(pry pry pry)
-    @modules = %w(date)
+    @modules = %w(date erb)
     @loader = Config::FileLoader.new(@path)
   end
 
