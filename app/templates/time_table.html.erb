@@ -1,3 +1,57 @@
-<h1>test</h1>
-<p style='color: red;'><%= @some_variable %></p>
-<i><h6><%= Date.today %></h6></i>
+<h3>UAM - plan zajęć</h3>
+
+<h4>Sobota <%= @saturday.strftime('%d.%m.%Y') %></h4>
+<table style="border-collapse: collapse;">
+  <thead>
+    <tr style="border-bottom: 1px solid grey;">
+      <th>od</th>
+      <th>do</th>
+      <th>przedmiot</th>
+      <th>sala</th>
+      <th>typ</th>
+      <th>kod</th>
+      <th>wykładowca</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @saturday_classes.each do |lesson| %>
+      <tr style="border-bottom: 1px solid lightgrey;">
+        <td><%= lesson.from %></td>
+        <td><%= lesson.to %></td>
+        <td><%= lesson.subject %></td>
+        <td><%= lesson.classroom %></td>
+        <td><%= lesson.type %></td>
+        <td><%= lesson.code %></td>
+        <td><%= lesson.teacher %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4>Niedziela <%= @sunday.strftime('%d.%m.%Y') %></h4>
+<table style="border-collapse: collapse;">
+  <thead>
+    <tr style="border-bottom: 1px solid grey;">
+      <th>od</th>
+      <th>do</th>
+      <th>przedmiot</th>
+      <th>sala</th>
+      <th>typ</th>
+      <th>kod</th>
+      <th>wykładowca</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sunday_classes.each do |lesson| %>
+      <tr style="border-bottom: 1px solid lightgrey;">
+        <td><%= lesson.from %></td>
+        <td><%= lesson.to %></td>
+        <td><%= lesson.subject %></td>
+        <td><%= lesson.classroom %></td>
+        <td><%= lesson.type %></td>
+        <td><%= lesson.code %></td>
+        <td><%= lesson.teacher %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
