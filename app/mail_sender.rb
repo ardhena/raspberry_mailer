@@ -1,5 +1,5 @@
 class MailSender
-  SENDER = 'olgadraber@gmail.com'
+  SENDER = 'Cron Daemon <root@rp.dev.me> '
   RECEIVERS = 'olgadraber@gmail.com'
 
   def initialize(subject, template)
@@ -9,7 +9,6 @@ class MailSender
 
   def call
     mail = generate_mail(@subject, @template)
-    mail.delivery_method :sendmail
     mail.deliver
   end
 
