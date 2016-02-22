@@ -9,6 +9,7 @@ class MailSender
 
   def call
     mail = generate_mail(@subject, @template)
+    mail.delivery_method :sendmail unless APP_ENV == 'production'
     mail.deliver
   end
 
