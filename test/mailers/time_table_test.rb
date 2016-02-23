@@ -4,7 +4,7 @@ require_relative '../../app/mailers/time_table'
 require 'date'
 require_relative '../../config/initializers/string'
 
-PATH = 'test'
+APP_PATH = 'test'
 
 module Mailer
   class TimeTableTest < Minitest::Test

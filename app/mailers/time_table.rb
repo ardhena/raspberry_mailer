@@ -7,7 +7,7 @@ module Mailer
     def initialize(date)
       @saturday = date.next.next.next
       @sunday = saturday.next
-      @template_path = "#{::PATH}/app/templates/#{TEMPLATE_NAME}.html.erb"
+      @template_path = "#{::APP_PATH}/app/templates/#{TEMPLATE_NAME}.html.erb"
     end
 
     def call
