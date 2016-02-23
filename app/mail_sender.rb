@@ -16,6 +16,9 @@ class MailSender
   private
 
   def generate_mail(subject, template)
+    Mail.defaults do
+      delivery_method :smtp, { enable_starttls_auto: false }
+    end
     Mail.new do
       from    SENDER
       to      RECEIVERS

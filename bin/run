@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source /home/deployer/.bashrc
+
+export RASPBERRY_MAILER_PATH="/var/www/raspberry_mailer/current/"
+export RASPBERRY_MAILER_ENV="production"
+export PATH="/usr/local/rvm/gems/ruby-2.2.4/bin:/usr/local/rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0:$PATH"
+
+echo "Running raspberry mailer at `date`" >> /home/deployer/.cron.log
+
+/usr/local/rvm/rubies/ruby-2.2.4/bin/ruby /var/www/raspberry_mailer/current/bin/app.rb >> /home/deployer/.cron.log
+
+echo "Finished without errors at `date`" >> /home/deployer/.cron.log
