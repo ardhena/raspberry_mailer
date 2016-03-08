@@ -19,7 +19,7 @@ module Fetcher
 
     def get_table
       session.visit(URL)
-      session.find(:select, 'Studia').find(:option, text: 'Informatyka - Licencjackie').select_option
+      session.find(:select, 'Studia').find(:option, text: 'Informatyka - Inżynier').select_option
       session.find(:select, 'RokStudiow').find(:option, YEAR).select_option
       session.find(:input, '#Semestr').set(SEMESTER)
       session.find(:input, '#datepicker1').set(day.to_s)
